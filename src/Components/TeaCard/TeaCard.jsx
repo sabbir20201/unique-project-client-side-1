@@ -11,7 +11,7 @@ const TeaCard = () => {
     }, [])
 
     return (
-        <div>
+        <div className="my-10">
             <h1 className="text-center font-bold text-4xl my-6">Bestselling Teas</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {
