@@ -1,11 +1,27 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
     const navLinks = <>
         <li><Link to="/">Home</Link></li>
+        <li><Link to="/details">Details</Link></li>
         <li><Link to="/login">Login</Link></li>
-        <li><Link to="/register">register</Link></li>
+
+
+
     </>
     return (
         <div>
@@ -19,19 +35,40 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
+                    <a className="btn btn-ghost text-xl">
+                        <img className="w-20 rounded-2xl" src="https://i.ibb.co/bmDGyQR/images-1.png" alt="" />
+                    </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        { navLinks}
+                        {navLinks}
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="avatar">
-                        <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    <p>{user?.displayName}</p>
+                    <div className="dropdown dropdown-end">
+
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img alt="coming soon" src={user?.photoURL} />
+                            </div>
                         </div>
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                            <li>
+                                {
+                                    user ? <>
+                                        <button className="btn" onClick={handleLogOut}><Link to="/details">Logout</Link></button>
+                                    </>
+                                        :
+                                        <>
+                                            <button to="/login">login</button>
+                                        </>
+                                }
+                            </li>
+
+                        </ul>
                     </div>
+
                 </div>
             </div>
         </div>

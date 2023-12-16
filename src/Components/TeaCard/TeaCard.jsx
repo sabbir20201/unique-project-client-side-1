@@ -5,7 +5,7 @@ import TeaSingleCard from "../TeaSingleCard/TeaSingleCard";
 const TeaCard = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch('data.json')
+        fetch('http://localhost:5000/alltea')
             .then(res => res.json())
             .then(data => setData(data))
     }, [])

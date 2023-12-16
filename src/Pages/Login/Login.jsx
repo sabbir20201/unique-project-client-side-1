@@ -11,11 +11,9 @@ const Login = () => {
     const handleRegister = (e) => {
         e.preventDefault();
         const form = e.target;
-        const name = form.name.value;
-        const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, photoURL, password);
+        console.log( email,  password);
 
         signIn(email, password)
             .then(result => {
@@ -36,7 +34,7 @@ const Login = () => {
     }
     return (
         <div className="my-10">
-
+            <h1 className="text-center font-bold text-3xl mb-4">Login Here</h1>
             <form onSubmit={handleRegister} className="max-w-sm mx-auto">
                 <div className="mb-5">
                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
@@ -48,7 +46,7 @@ const Login = () => {
                 </div>
 
                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
-                <p className="mt-4 ">do not have an account? <Link to='/register' className="text-green-500">Register</Link></p>
+                <p className="mt-4 ">New here? <Link to='/register' className="text-green-500">Register</Link></p>
 
             </form>
         </div>

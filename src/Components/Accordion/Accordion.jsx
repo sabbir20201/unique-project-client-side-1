@@ -3,14 +3,14 @@
 const Accordion = () => {
     return (
         <div className="my-10">
-               <h1 className="text-center font-bold text-4xl my-14">Freequently asked question</h1>
+               <h1 className="text-center font-bold text-4xl my-14">Frequently Asked Question</h1>
             <div className="collapse collapse-arrow bg-base-200">
                 <input type="radio" name="my-accordion-2" checked="checked" />
                 <div className="collapse-title text-xl font-medium">
                 What types of tea do you offer?
                 </div>
                 <div className="collapse-content">
-                    <p> Explore our diverse collection, from classic blends to unique artisanal creations, curated to satisfy every tea enthusiast's palate.</p>
+                    <p> Explore our diverse collection, from classic blends to unique artisanal creations, curated to satisfy every teas palate.</p>
                 </div>
             </div>
             <div className="collapse collapse-arrow bg-base-200">

@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updatedProfile} = useContext(AuthContext)
     console.log(createUser);
     const handleRegister = (e)=>{
         e.preventDefault();
@@ -26,6 +26,11 @@ const Register = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              updatedProfile(name, photoURL)
+              .then(()=>{
+                console.log('user profile updated');
+              })
+              .catch(error => console.log(error))
         })
         .catch(error =>{
             console.log(error);
@@ -34,7 +39,7 @@ const Register = () => {
     }
     return (
         <div className="my-10">
-
+<h1 className="text-center font-bold text-3xl mb-4">Register Now</h1>
             <form onSubmit={handleRegister} className="max-w-sm mx-auto">
                 <div className="mb-5">
                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>

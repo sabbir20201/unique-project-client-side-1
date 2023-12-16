@@ -59,6 +59,16 @@ const Testimonials = () => {
                     
                     </div>
                 </SwiperSlide>
+                <SwiperSlide className='p-20'>
+                    <p>
+                    "Tea perfection! The Red Rooibos Organic, Fair Trade is a comforting choice, and the Chamomile Botanical Blend Sachets are a true gem. The teas not only meet but exceed expectations. Premium quality, delightful aromas, and an absolute joy to taste. Highly recommended!"
+                    </p>
+                    <div>
+                    <img className="w-16 h-16 rounded-full mt-4" src="https://i.ibb.co/d0NZMC5/portrait-handsome-caucasian-man-formal-260nw-2142820441.webp" alt="profile picture" /> 
+                    <h1 className='font-semibold text-xl'>Bonnie Green</h1>
+                    
+                    </div>
+                </SwiperSlide>
   
             
              
