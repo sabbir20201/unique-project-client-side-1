@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Organic Dandelion & Peach Naturally",
+    "heading": "Product 1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget justo id libero tempus laoreet.",
+    "rating": 4.5,
+    "price": 19.99,
+    "image": "https://i.ibb.co/hBCM5rg/product-1-1-600x600.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Chamomile Blend Organic Tea",
+    "heading": "Product 2",
+    "description": "Vestibulum ac justo eu sem aliquet ullamcorper. Nunc vel libero sit amet est hendrerit lacinia.",
+    "rating": 3.8,
+    "price": 29.99,
+    "image": "https://i.ibb.co/HBgd8m6/product-2-1-600x600.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Chamomile Botanical Blend Sachets",
+    "heading": "Product 3",
+    "description": "Duis vel libero eu odio accumsan euismod. Ut non urna eu tellus congue tincidunt.",
+    "rating": 4.2,
+    "price": 24.99,
+    "image": "https://i.ibb.co/Nj0rDCB/product-5-1-600x600.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Red Raspberry Organic White Tea ",
+    "heading": "Product 4",
+    "description": "Integer auctor leo vel ipsum fermentum, id tempus ligula convallis. Aliquam tincidunt libero in quam varius, sit amet fringilla orci feugiat.",
+    "rating": 4.7,
+    "price": 39.99,
+    "image": "https://i.ibb.co/2dgwVPv/product-7-1-600x600.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Red Rooibos Organic, Fair Trade",
+    "heading": "Product 5",
+    "description": "Fusce tristique nisl vel risus tincidunt, eget bibendum elit fermentum. Morbi eu purus a magna cursus fringilla.",
+    "rating": 3.5,
+    "price": 14.99,
+    "image": "https://i.ibb.co/pKFsPwH/product-6-1-600x600.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Fair Trade Black, Berry Organic Tea",
+    "heading": "Product 6",
+    "description": "Curabitur aliquet arcu vel est dictum, a efficitur justo fringilla. Sed ac lacus vel purus scelerisque egestas.",
+    "rating": 4.0,
+    "price": 34.99,
+    "image": "https://i.ibb.co/YBmgFNV/product-9-2-600x600.jpg"
+  }
+]
