@@ -5,6 +5,7 @@ import Register from "../Pages/Register/Register.JSX";
 import Login from "../Pages/Login/Login.JSX";
 import Details from "../Pages/Details/Details";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Dashboard/Dashboard/Dashboard";
 
 
 
@@ -29,6 +30,15 @@ const Routes = createBrowserRouter([
             {
                 path:'/details',
                 element: <PrivateRoute><Details></Details></PrivateRoute> 
+            }
+        ]
+    },
+    {
+        path: "dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path:""
             }
         ]
     }
