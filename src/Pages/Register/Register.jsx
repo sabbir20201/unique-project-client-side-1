@@ -26,7 +26,8 @@ const Register = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
-              updatedProfile(name, photoURL)
+              updatedProfile(name,photoURL)
+
               .then(()=>{
                 console.log('user profile updated');
               })

@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 
 
 // eslint-disable-next-line react/prop-types
-const TeaSingleCard = ({ item }) => {
+const TeaSingleCard = ({ item ,handleDelete}) => {
     // eslint-disable-next-line react/prop-types
-    const { name, price, rating, image } = item;
+    const { name, price, rating, image,_id } = item;
     return (
         <div className="">
 
@@ -38,7 +39,14 @@ const TeaSingleCard = ({ item }) => {
                     </div>
                     <div className="flex items-center justify-between">
                         <span className="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
-                        <a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+                        <Link to={`/details/${_id}`}>
+                        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Details</button>     
+                        </Link>
+
+                        <button onClick={() => handleDelete(_id)} className="btn">
+                            delete
+                        </button>
+                   
                     </div>
                 </div>
             </div>

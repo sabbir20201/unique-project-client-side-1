@@ -1,15 +1,28 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import UseCart from "../../Hooks/UseCart/UseCart";
 
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext)
-
+    // const { user, logOut,updatedProfile } = useContext(AuthContext)
+    const { user, logOut, updatedProfile } = useContext(AuthContext);
+    console.log(updatedProfile);
+    const [cart] = UseCart();
+    console.log(cart);
     const handleLogOut = () => {
         logOut()
             .then(result => {
-                console.log(result.user);
+                console.log(result);
+                console.log('logout successfully');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "logOut in successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })
             .catch(error => {
                 console.log(error.message);
@@ -17,8 +30,9 @@ const Navbar = () => {
     }
     const navLinks = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/details">Details</Link></li>
         <li><Link to="/login">Login</Link></li>
+        <li><Link to="/dashboard">dashboard</Link></li>
+        <li><Link to="/">{cart.length}</Link></li>
 
 
 
@@ -45,6 +59,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    {/* <p>{user?.email}</p> */}
                     <p>{user?.displayName}</p>
                     <div className="dropdown dropdown-end">
 
@@ -52,16 +67,21 @@ const Navbar = () => {
                             <div className="w-10 rounded-full">
                                 <img alt="coming soon" src={user?.photoURL} />
                             </div>
+                            <p>
+                                {user?.email}
+                            </p>
                         </div>
                         <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                             <li>
                                 {
                                     user ? <>
-                                        <button className="btn" onClick={handleLogOut}><Link to="/details">Logout</Link></button>
+                                        <button className="btn" onClick={handleLogOut}>LogOut</button>
                                     </>
                                         :
                                         <>
-                                            <button to="/login">login</button>
+                                        <Link to="/login">
+                                        <button>login</button>
+                                        </Link>
                                         </>
                                 }
                             </li>

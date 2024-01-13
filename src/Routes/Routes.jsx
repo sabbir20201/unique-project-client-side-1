@@ -4,8 +4,12 @@ import Home from "../Pages/Home/Home";
 import Register from "../Pages/Register/Register.JSX";
 import Login from "../Pages/Login/Login.JSX";
 import Details from "../Pages/Details/Details";
-import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Dashboard/Dashboard/Dashboard";
+import AddProduct from "../Dashboard/AddProduct/AddProduct";
+import UserHome from "../Dashboard/UserHome/UserHome";
+import UpdateProduct from "../Dashboard/UpdateProduct/UpdateProduct";
+import ManageProduct from "../Dashboard/ManageProduct/ManageProduct";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -28,18 +32,33 @@ const Routes = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path:'/details',
-                element: <PrivateRoute><Details></Details></PrivateRoute> 
+                path: '/details/:id',
+                element: <PrivateRoute><Details></Details></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
             }
         ]
     },
     {
         path: "dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute> ,
         children: [
             {
-                path:""
-            }
+                path:"addProduct",
+                element: <AddProduct></AddProduct>
+            },
+            {
+                path:'useHome',
+                element: <UserHome></UserHome>
+            },
+            {
+                path:'updateProduct/:id',
+                element: <UpdateProduct></UpdateProduct>,
+                loader: ({params})=> fetch(`http://localhost:5000/updateProduct/${params.id}`)
+            },
+            {
+                path:'manageProduct',
+                element: <ManageProduct></ManageProduct>
+            },
         ]
     }
 ])

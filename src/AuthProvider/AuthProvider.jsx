@@ -5,36 +5,38 @@ import { app } from "../firebase/firebase.config";
 export const AuthContext = createContext();
 const auth = getAuth(app)
 // eslint-disable-next-line react/prop-types
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
 
-    const createUser = (email, password)=>{
+    const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
-    const signIn = (email, password)=>{
+    const signIn = (email, password) => {
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
-    const logOut = ()=>{
+
+    const logOut = () => {
         setLoading(true)
         return signOut(auth)
     }
-    const updatedProfile = (name, photo)=>{
-       return updateProfile(auth.currentUser, {
-            displayName: name, photoURL: photo
-          })
+    const updatedProfile = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo
+        })
     }
-    useEffect(()=>{
-       const unSubscribe =  onAuthStateChanged(auth, (currentUser)=>{
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
             console.log('obsurving');
             setLoading(false)
         })
         return unSubscribe
 
-    },[])
+    }, [])
 
     const authInfo = {
         user,

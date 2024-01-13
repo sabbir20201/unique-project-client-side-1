@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
 const Login = () => {
     const { signIn } = useContext(AuthContext)
+    const navigate = useNavigate()
     console.log(signIn);
     const handleRegister = (e) => {
         e.preventDefault();
@@ -25,6 +26,7 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                navigate("/")
             })
             .catch(error => {
                 const errorMessage = error.message;
